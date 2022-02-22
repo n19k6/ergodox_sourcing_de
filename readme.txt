@@ -26,15 +26,38 @@ amazon: approx. 22 EUR (china)
 amazon: approx. 40 EUR (us)
 
 
-
 people who build it:
 https://blog.goflo.net/2016/01/ergodox-hell-yeah/
 
 
 one stop shops:
 https://falba.tech/ (poland)
+https://keyhive.xyz/shop/pb-gherkin
+https://keeb.io
+https://splitkb.com/
+https://keycapsss.com
+beekeeb (hongkong)
+Keyhive
+candykeys-keeb.io distributor
 
 variants:
+ergodox -> redox -> corne
+ghirkini
 
-ergodox -> redox
+other stuff:
+https://www.hackster.io/news/sekigon-gonnoc-unlocks-a-second-usb-port-on-the-raspberry-pi-rp2040-using-pio-state-machines-70d1f46c21fd
+ardunio usb host interceptor
 
+links:
+https://www.mouser.com/blog/open-source-reinvents-the-keyboard
+https://learn.adafruit.com/pb-gherkhin-30-keyboard-with-kmk-circuitpython-kb2040
+https://learn.adafruit.com/diy-pico-mechanical-keyboard-with-fritzing-circuitpython
+https://www.youtube.com/watch?v=Cwkf7HFcUkY
+
+possible paths:
+which firmware (c or python based, i.e. QMK vs. KMK)?
+which microcontroller (teensy, arduino pro, pico, kb2040)?
+with pcb or handsolder, hot-switch or solder keys?
+design with one or two microcontrollers?
+keyswitch lights yes or no?
+status lights yes or no?
