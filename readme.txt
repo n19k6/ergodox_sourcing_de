@@ -34,3 +34,7 @@ https://blog.goflo.net/2016/01/ergodox-hell-yeah/
 one stop shops:
 https://falba.tech/ (poland)
 
+variants:
+
+ergodox -> redox
+
