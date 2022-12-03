@@ -1,0 +1,12 @@
+via mit macos: kayboard test worked, configure page was shown, via was via-1.3.1-mac.dmg, keymap file was _v1.1.zip
+
+via on windows:
+https://www.caniusevia.com/
+
+https://www.keychron.com/products/keychron-k8-wireless-mechanical-keyboard-german-iso-de-layout
+download K8 Pro OISO RGB keymap JSON file
+
+https://github.com/the-via
+
+
+https://www.keychron.com/products/keychron-k8-pro-qmk-via-wireless-mechanical-keyboard-iso-layout-collection
