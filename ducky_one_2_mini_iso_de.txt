@@ -1,0 +1,23 @@
+version; DKON2061ST
+
+DKON2061ST
+
+https://www.duckychannel.com.tw/en/Support/Detail/19
+
+wmic path CIM_LogicalDevice where "Description like 'USB%'" get /value | findstr DK
+DeviceID=USB\VID_3233&amp;PID_6301\DK-V1.08-200925
+PNPDeviceID=USB\VID_3233&amp;PID_6301\DK-V1.08-200925
+DeviceID=USB\VID_3233&amp;PID_6301\DK-V1.08-200925
+PNPDeviceID=USB\VID_3233&amp;PID_6301\DK-V1.08-200925
+
+DeviceID=USB\VID_3233&amp;PID_6301\DK-V1.10-201231
+
+
+https://defkey.com/ducky-one-2-mini-shortcuts
+
+
+Licht aus:
+fn-alt-t
+
+Profile anzeigen:
+fn-alt-esc
