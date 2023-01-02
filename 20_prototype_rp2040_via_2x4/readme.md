@@ -158,41 +158,183 @@ Copying ortho_2x4_default.uf2 to qmk_firmware folder                            
 * change diode direction, matrix layout and keycodes in files "info.json" and "keymaps/default/keymap.c"
 
 ```
-$ git diff keyboards/ortho_2x4/config.h
-diff --git a/keyboards/ortho_2x4/config.h b/keyboards/ortho_2x4/config.h
-index 3ef2d0c6dc..fbd97359d5 100644
---- a/keyboards/ortho_2x4/config.h
-+++ b/keyboards/ortho_2x4/config.h
-@@ -18,3 +18,6 @@
- //#define NO_ACTION_LAYER
- //#define NO_ACTION_TAPPING
- //#define NO_ACTION_ONESHOT
-+//
-+#define FORCE_NKRO
-+
-$ git diff keyboards/ortho_2x4/r
-readme.md  rules.mk
-$ git diff keyboards/ortho_2x4/rules.mk
-diff --git a/keyboards/ortho_2x4/rules.mk b/keyboards/ortho_2x4/rules.mk
-index 6e7633bfe0..a372fdf62c 100644
---- a/keyboards/ortho_2x4/rules.mk
-+++ b/keyboards/ortho_2x4/rules.mk
-@@ -1 +1,3 @@
- # This file intentionally left blank
-+VIA_ENABLE = yes
+$ git diff keyboards/ortho_2x4/info.json
+diff --git a/keyboards/ortho_2x4/info.json b/keyboards/ortho_2x4/info.json
+index 29a3e7167f..3bb7f038dd 100644
+--- a/keyboards/ortho_2x4/info.json
++++ b/keyboards/ortho_2x4/info.json
+@@ -3,7 +3,6 @@
+     "keyboard_name": "ortho_2x4",
+     "maintainer": "xxx",
+     "bootloader": "rp2040",
+-    "diode_direction": "COL2ROW",
+     "features": {
+         "bootmagic": true,
+         "command": false,
+@@ -13,8 +12,10 @@
+         "nkro": true
+     },
+     "matrix_pins": {
+-        "cols": ["GP1", "GP2", "GP3", "GP4"],
+-        "rows": ["GP5", "GP6", "GP7", "GP8"]
++        "direct": [
++            ["GP13", "GP12", "GP11", "GP10"],
++            ["GP9", "GP8", "GP7", "GP6"]
++       ]
+     },
+     "processor": "RP2040",
+     "url": "",
+@@ -24,7 +25,7 @@
+         "vid": "0xFEED"
+     },
+     "layouts": {
+-        "LAYOUT_ortho_4x4": {
++        "LAYOUT_ortho_2x4": {
+             "layout": [
+                 { "matrix": [0, 0], "x": 0, "y": 0 },
+                 { "matrix": [0, 1], "x": 1, "y": 0 },
+@@ -33,15 +34,7 @@
+                 { "matrix": [1, 0], "x": 0, "y": 1 },
+                 { "matrix": [1, 1], "x": 1, "y": 1 },
+                 { "matrix": [1, 2], "x": 2, "y": 1 },
+-                { "matrix": [1, 3], "x": 3, "y": 1 },
+-                { "matrix": [2, 0], "x": 0, "y": 2 },
+-                { "matrix": [2, 1], "x": 1, "y": 2 },
+-                { "matrix": [2, 2], "x": 2, "y": 2 },
+-                { "matrix": [2, 3], "x": 3, "y": 2 },
+-                { "matrix": [3, 0], "x": 0, "y": 3 },
+-                { "matrix": [3, 1], "x": 1, "y": 3 },
+-                { "matrix": [3, 2], "x": 2, "y": 3 },
+-                { "matrix": [3, 3], "x": 3, "y": 3 }
++                { "matrix": [1, 3], "x": 3, "y": 1 }
+             ]
+         }
+     }
+$ git diff keyboards/ortho_2x4/keymaps/default/keymap.c
+diff --git a/keyboards/ortho_2x4/keymaps/default/keymap.c b/keyboards/ortho_2x4/keymaps/default/keymap.c
+index 26769e0bee..5dc5fb7e24 100644
+--- a/keyboards/ortho_2x4/keymaps/default/keymap.c
++++ b/keyboards/ortho_2x4/keymaps/default/keymap.c
+@@ -12,10 +12,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+      * │ 0 │ . │Ent│ + │
+      * └───┴───┴───┴───┘
+      */
+-    [0] = LAYOUT_ortho_4x4(
+-        KC_P7,   KC_P8,   KC_P9,   KC_PSLS,
+-        KC_P4,   KC_P5,   KC_P6,   KC_PAST,
+-        KC_P1,   KC_P2,   KC_P3,   KC_PMNS,
+-        KC_P0,   KC_PDOT, KC_PENT, KC_PPLS
++    [0] = LAYOUT_ortho_2x4(
++        KC_P1,   KC_P2,   KC_P3,   KC_P4,
++        KC_P5,   KC_P6,   KC_P7,   KC_P8
+     )
+ };
+$ cat keyboards/ortho_2x4/info.json
+{
+    "manufacturer": "xxx",
+    "keyboard_name": "ortho_2x4",
+    "maintainer": "xxx",
+    "bootloader": "rp2040",
+    "features": {
+        "bootmagic": true,
+        "command": false,
+        "console": false,
+        "extrakey": true,
+        "mousekey": true,
+        "nkro": true
+    },
+    "matrix_pins": {
+        "direct": [
+            ["GP13", "GP12", "GP11", "GP10"],
+            ["GP9", "GP8", "GP7", "GP6"]
+        ]
+    },
+    "processor": "RP2040",
+    "url": "",
+    "usb": {
+        "device_version": "1.0.0",
+        "pid": "0x0000",
+        "vid": "0xFEED"
+    },
+    "layouts": {
+        "LAYOUT_ortho_2x4": {
+            "layout": [
+                { "matrix": [0, 0], "x": 0, "y": 0 },
+                { "matrix": [0, 1], "x": 1, "y": 0 },
+                { "matrix": [0, 2], "x": 2, "y": 0 },
+                { "matrix": [0, 3], "x": 3, "y": 0 },
+                { "matrix": [1, 0], "x": 0, "y": 1 },
+                { "matrix": [1, 1], "x": 1, "y": 1 },
+                { "matrix": [1, 2], "x": 2, "y": 1 },
+                { "matrix": [1, 3], "x": 3, "y": 1 }
+            ]
+        }
+    }
+}
+$ git cat keyboards/ortho_2x4/keymaps/default/keymap.c
+git: 'cat' is not a git command. See 'git --help'.
+
+The most similar commands are
+        clean
+        mktag
+        stage
+        stash
+        tag
+        var
+$ cat keyboards/ortho_2x4/keymaps/default/keymap.c
+#include QMK_KEYBOARD_H
+
+const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+    /*
+     * ┌───┬───┬───┬───┐
+     * │ 1 │ 2 │ 3 │ 4 │
+     * ├───┼───┼───┼───┤
+     * │ 5 │ 6 │ 7 │ 8 │
+     * └───┴───┴───┴───┘
+     */
+    [0] = LAYOUT_ortho_2x4(
+        KC_P1,   KC_P2,   KC_P3,   KC_P4,
+        KC_P5,   KC_P6,   KC_P7,   KC_P8
+    )
+};
 ```
 
 * verify that firmware still compiles
-* if keyboard hardware is available, flash keyboard and verify that key mapping is correct[^4]
-* modify files
+* if keyboard hardware is available, flash keyboard and verify that key mapping is correct[^4
 
 ## Usage
+
+* create a file named "ortho_via.json" with the following content:
+
+´´´
+{
+  "name": "ortho_2x4" ,
+  "vendorId": "0xFEED",
+  "productId": "0x0000",
+  "matrix": { "rows": 2, "cols": 4 },
+  "layouts": 
+  {
+    "keymap": 
+	 [
+		[{"y":0,"x":0},"0,0",{"x":1},"0,1",{"x":2},"0,2",{"x":3},"0,3"],
+		[{"y":1,"x":0},"1,0",{"x":1},"1,1",{"x":2},"1,2",{"x":3},"1,3"]
+	 ]
+  }
+}
+´´´
+
+* verify that key mapping can be changed using via[^5]
+* the ui interface should look similiar to the following:
+
+<img src="images/via_layout.png" alt="breadboard" width="800"/>
 
 
 [^1]: [Raspberry Pico](https://www.raspberrypi.com/products/raspberry-pi-pico/)
 [^2]: [Adafruit Tactile Switch Buttons](https://www.adafruit.com/product/1119
 [^3]: [Adafruit Learning System: Using QMK on RP2040] (https://learn.adafruit.com/using-qmk-on-rp2040-microcontrollers/overview)
 [^4]: If you have a WebHID enabled browser like Chrome or Edge use [VIA](https://usevia.app/#/) otherwise use [key-rollover-test](https://www.mechanical-keyboard.org/key-rollover-test/)
+[^5]: File is available at: [via_ortho_2x4.json](firmware/via_ortho_2x4.json)
+[^6]:[VIA](https://www.caniusevia.com)
 
 tasks:
 a) reproduce adafuit one key qmk example
