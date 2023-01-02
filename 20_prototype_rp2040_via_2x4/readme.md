@@ -10,21 +10,51 @@
 * Schematic
 <img src="images/schematic.png" alt="schematic" width="800"/>
 
-
 * Breadboard
 <img src="images/breadboard.png" alt="breadboard" width="800"/>
 
-
-
-
-
 ## Software
+
+### Compile on Raspberry Pi
+
+Any linux based operation system should work. If flashing does not work the generated uf2-file can be installed manually.
+I used a Raspberry Pi Zero. Compilation takes about 3 min.
+
+#### Setting up
+
+* install rasbian lite and enable ssh
+* install qmk[^2]
+
+```
+$ sudo apt install -y git python3-pip
+$ python3 -mpip install --user qmk
+$ qmk --version
+1.1.1
+$ qmk setup
+Ψ QMK is ready to go, but minor problems were found
+```
+** Remark: Instead of getting "QMK is ready to go" I get "QMK is ready to go, but minor problems were found" at the end of the qmk setup.
+
+* check if generating uf2-file and manual installation onto pico works
+
+```
+$ sudo apt install -y git python3-pip
+$ python3 -mpip install --user qmk
+$ qmk --version
+1.1.1
+$ qmk setup
+Ψ QMK is ready to go, but minor problems were found
+```
+** Remark: Instead of getting "QMK is ready to go" I get "QMK is ready to go, but minor problems were found" at the end of the qmk setup.
+
+
 
 ## Usage
 
 
 [^1]: [Raspberry Pico](https://www.raspberrypi.com/products/raspberry-pi-pico/)
-[^2]: [Adafruit Tactile Switch Buttons](https://www.adafruit.com/product/1119)
+[^2]: [Adafruit Tactile Switch Buttons](https://www.adafruit.com/product/1119
+[^3]: [Adafruit Learning System: Using QMK on RP2040] (https://learn.adafruit.com/using-qmk-on-rp2040-microcontrollers/overview)
 
 tasks:
 a) reproduce adafuit one key qmk example
