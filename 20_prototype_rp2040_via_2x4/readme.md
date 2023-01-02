@@ -3,16 +3,22 @@
 ## Hardware
 
 * Parts
-  * Raspberry Pico
-  * Eight tactile switches
+  * Raspberry Pico[^1]
+  * Eight tactile switches[^2]
   * Breadboard, Wires
 
 * Schematic
+
+![schematic](images/schematic.png)
+![breadboard](images/breadboard.png)
 
 ## Software
 
 ## Usage
 
+
+[^1]: [Raspberry Pico](dsfsdf)
+[^2]: 
 
 tasks:
 a) reproduce adafuit one key qmk example
