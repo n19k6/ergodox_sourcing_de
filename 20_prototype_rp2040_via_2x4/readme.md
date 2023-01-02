@@ -9,8 +9,8 @@
 
 * Schematic
 
-![schematic](images/schematic.png)
-![breadboard](images/breadboard.png)
+ ** ![schematic](images/schematic.png)
+ ** ![breadboard](images/breadboard.png)
 
 ## Software
 
@@ -99,3 +99,6 @@ ergogen
 
 https://media.ccc.de/v/froscon2021-2644-mechanische_tastaturen
 
+<!--
+compress files e.g. https://www.iloveimg.com
+-->
