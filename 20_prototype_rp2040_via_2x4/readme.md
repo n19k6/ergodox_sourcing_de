@@ -8,11 +8,11 @@
   * Breadboard, Wires
 
 * Schematic
-<img src="images/schematic.png" alt="breadboard" width="200"/>
+<img src="images/schematic.png" alt="schematic" width="800"/>
 
 
 * Breadboard
-![breadboard](images/breadboard.png)
+<img src="images/breadboard.png" alt="breadboard" width="800"/>
 
 
 
