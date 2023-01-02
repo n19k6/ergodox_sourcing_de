@@ -8,17 +8,20 @@
   * Breadboard, Wires
 
 * Schematic
+![breadboard](images/breadboard.png)
+ <!--** ![schematic](images/schematic.png)-->
 
- ** ![schematic](images/schematic.png)
- ** ![breadboard](images/breadboard.png)
+```
+test
+```
 
 ## Software
 
 ## Usage
 
 
-[^1]: [Raspberry Pico](dsfsdf)
-[^2]: 
+[^1]: [Raspberry Pico](https://www.raspberrypi.com/products/raspberry-pi-pico/)
+[^2]: [Adafruit Tactile Switch Buttons](https://www.adafruit.com/product/1119)
 
 tasks:
 a) reproduce adafuit one key qmk example
