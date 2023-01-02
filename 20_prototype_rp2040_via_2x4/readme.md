@@ -8,12 +8,14 @@
   * Breadboard, Wires
 
 * Schematic
-![breadboard](images/breadboard.png)
- <!--** ![schematic](images/schematic.png)-->
+![breadboard](images/schematic.png)
 
-```
-test
-```
+* Breadboard
+![breadboard](images/breadboard.png)
+
+
+
+
 
 ## Software
 
