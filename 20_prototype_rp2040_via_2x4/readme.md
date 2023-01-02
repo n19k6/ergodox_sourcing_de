@@ -291,6 +291,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 * verify that firmware still compiles
 * if keyboard hardware is available, flash keyboard and verify that key mapping is correct[^4]
+* remark: if you once changed the the keymaping using via once the values are stored and will remain also reflashing with completly different uf2-files e.g. blink.uf2
 
 ## Usage
 
@@ -313,6 +314,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 }
 ```
 
+
 * verify that key mapping can be changed using via[^5]
 * the ui interface should look similiar to the following:
 
@@ -329,4 +331,3 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 <!--
 compress files e.g. https://www.iloveimg.com
 -->
-qqqqqwweeeeee
