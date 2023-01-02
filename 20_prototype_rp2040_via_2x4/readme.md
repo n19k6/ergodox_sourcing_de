@@ -1,3 +1,19 @@
+# Information about Pico-QMK-VIA Prototype
+
+## Hardware
+
+* Parts
+  * Raspberry Pico
+  * Eight tactile switches
+  * Breadboard, Wires
+
+* Schematic
+
+## Software
+
+## Usage
+
+
 tasks:
 a) reproduce adafuit one key qmk example
 b) compile firmware on raspberry zero
