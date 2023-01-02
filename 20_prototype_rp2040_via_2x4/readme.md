@@ -295,7 +295,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 ## Usage
 
-* create a file named "ortho_via.json" with the following content:
+* create a file named "draft_two_x_four.json" with the following content:
 
 ```
 {
