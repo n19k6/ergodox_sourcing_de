@@ -323,7 +323,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [^2]: [Adafruit Tactile Switch Buttons](https://www.adafruit.com/product/1119
 [^3]: [Adafruit Learning System: Using QMK on RP2040] (https://learn.adafruit.com/using-qmk-on-rp2040-microcontrollers/overview)
 [^4]: If you have a WebHID enabled browser like Chrome or Edge use [VIA](https://usevia.app/#/) otherwise use [key-rollover-test](https://www.mechanical-keyboard.org/key-rollover-test/)
-[^5]: File is available at: [via_ortho_2x4.json](firmware/via_ortho_2x4.json)
+[^5]: File is available at: [via_two_x_four.json](firmware/via_two_x_four.json)
 [^6]:[VIA](https://www.caniusevia.com)
 
 <!--
