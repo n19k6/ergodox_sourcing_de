@@ -54,7 +54,7 @@ Copying handwired_onekey_rp2040_default.uf2 to qmk_firmware folder              
 
 #### Compiling Firmware
 
-* generate ortho_2x4 keyboard template
+* generate two_x_four keyboard template
 
 ```
 $ qmk new-keyboard
@@ -64,7 +64,7 @@ Name Your Keyboard Project
 For more infomation, see:
 https://docs.qmk.fm/#/hardware_keyboard_guidelines?id=naming-your-keyboardproject
 
-Keyboard Name? ortho_2x4
+Keyboard Name? two_x_four
 
 Attribution
 Used for maintainer, copyright, etc
@@ -102,30 +102,30 @@ MCU?
 ...
         52. WB32FQ95
 Please enter your choice:  [25] 33
-Ψ Created a new keyboard called ortho_2x4.
-Ψ To start working on things, `cd` into keyboards/ortho_2x4,
+Ψ Created a new keyboard called two_x_four.
+Ψ To start working on things, `cd` into keyboards/two_x_four,
 Ψ or open the directory in your preferred text editor.
-Ψ And build with qmk compile -kb ortho_2x4 -km default.
+Ψ And build with qmk compile -kb two_x_four -km default.
 ```
 
-* the following files have been generated with in directory '~/qmk_firmware/keyboards/ortho_2x4'
+* the following files have been generated with in directory '~/qmk_firmware/keyboards/two_x_four'
 
 ```
-keyboards/ortho_2x4/config.h
-keyboards/ortho_2x4/info.json
-keyboards/ortho_2x4/keymaps/default/keymap.c
-keyboards/ortho_2x4/readme.md
-keyboards/ortho_2x4/rules.mk
+keyboards/two_x_four/config.h
+keyboards/two_x_four/info.json
+keyboards/two_x_four/keymaps/default/keymap.c
+keyboards/two_x_four/readme.md
+keyboards/two_x_four/rules.mk
 ```
 
 * adjust pin names in file "info.json"
 
 ```
- $ git diff keyboards/ortho_2x4/info.json
-diff --git a/keyboards/ortho_2x4/info.json b/keyboards/ortho_2x4/info.json
+ $ git diff keyboards/two_x_four/info.json
+diff --git a/keyboards/two_x_four/info.json b/keyboards/two_x_four/info.json
 index e512bbedd7..29a3e7167f 100644
---- a/keyboards/ortho_2x4/info.json
-+++ b/keyboards/ortho_2x4/info.json
+--- a/keyboards/two_x_four/info.json
++++ b/keyboards/two_x_four/info.json
 @@ -13,8 +13,8 @@
          "nkro": true
      },
@@ -141,14 +141,14 @@ index e512bbedd7..29a3e7167f 100644
              ]
 ```
 
-* compile ortho_2x4 firmware
+* compile twoXfour firmware
 
 ```
-$ qmk compile -kb ortho_2x4 -km default
-Ψ Compiling keymap with gmake --jobs=1 ortho_2x4:default
+$ qmk compile -kb two_x_four -km default
+Ψ Compiling keymap with gmake --jobs=1 two_x_four:default
 ...
-Creating UF2 file for deployment: .build/ortho_2x4_default.uf2                                      [OK]
-Copying ortho_2x4_default.uf2 to qmk_firmware folder                                                [OK]
+Creating UF2 file for deployment: .build/two_x_four_default.uf2                                      [OK]
+Copying two_x_four_default.uf2 to qmk_firmware folder                                                [OK]
 (Firmware size check does not yet support RP2040; skipping)
 ```
 
@@ -158,13 +158,13 @@ Copying ortho_2x4_default.uf2 to qmk_firmware folder                            
 * change diode direction, matrix layout and keycodes in files "info.json" and "keymaps/default/keymap.c"
 
 ```
-$ git diff keyboards/ortho_2x4/info.json
-diff --git a/keyboards/ortho_2x4/info.json b/keyboards/ortho_2x4/info.json
+$ git diff keyboards/two_x_four/info.json
+diff --git a/keyboards/two_x_four/info.json b/keyboards/two_x_four/info.json
 index 29a3e7167f..3bb7f038dd 100644
---- a/keyboards/ortho_2x4/info.json
-+++ b/keyboards/ortho_2x4/info.json
+--- a/keyboards/two_x_four/info.json
++++ b/keyboards/two_x_four/info.json
 @@ -3,7 +3,6 @@
-     "keyboard_name": "ortho_2x4",
+     "keyboard_name": "two_x_four",
      "maintainer": "xxx",
      "bootloader": "rp2040",
 -    "diode_direction": "COL2ROW",
@@ -210,11 +210,11 @@ index 29a3e7167f..3bb7f038dd 100644
              ]
          }
      }
-$ git diff keyboards/ortho_2x4/keymaps/default/keymap.c
-diff --git a/keyboards/ortho_2x4/keymaps/default/keymap.c b/keyboards/ortho_2x4/keymaps/default/keymap.c
+$ git diff keyboards/two_x_four/keymaps/default/keymap.c
+diff --git a/keyboards/two_x_four/keymaps/default/keymap.c b/keyboards/two_x_four/keymaps/default/keymap.c
 index 26769e0bee..5dc5fb7e24 100644
---- a/keyboards/ortho_2x4/keymaps/default/keymap.c
-+++ b/keyboards/ortho_2x4/keymaps/default/keymap.c
+--- a/keyboards/two_x_four/keymaps/default/keymap.c
++++ b/keyboards/two_x_four/keymaps/default/keymap.c
 @@ -12,10 +12,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       * │ 0 │ . │Ent│ + │
       * └───┴───┴───┴───┘
@@ -229,10 +229,10 @@ index 26769e0bee..5dc5fb7e24 100644
 +        KC_P5,   KC_P6,   KC_P7,   KC_P8
      )
  };
-$ cat keyboards/ortho_2x4/info.json
+$ cat keyboards/two_x_four/info.json
 {
     "manufacturer": "xxx",
-    "keyboard_name": "ortho_2x4",
+    "keyboard_name": "two_x_four",
     "maintainer": "xxx",
     "bootloader": "rp2040",
     "features": {
@@ -271,17 +271,7 @@ $ cat keyboards/ortho_2x4/info.json
         }
     }
 }
-$ git cat keyboards/ortho_2x4/keymaps/default/keymap.c
-git: 'cat' is not a git command. See 'git --help'.
-
-The most similar commands are
-        clean
-        mktag
-        stage
-        stash
-        tag
-        var
-$ cat keyboards/ortho_2x4/keymaps/default/keymap.c
+$ cat keyboards/two_x_four/keymaps/default/keymap.c
 #include QMK_KEYBOARD_H
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -308,7 +298,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 ```
 {
-  "name": "ortho_2x4" ,
+  "name": "two_x_four" ,
   "vendorId": "0xFEED",
   "productId": "0x0000",
   "matrix": { "rows": 2, "cols": 4 },
@@ -339,3 +329,4 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 <!--
 compress files e.g. https://www.iloveimg.com
 -->
+qqqqqwweeeeee
