@@ -20,7 +20,7 @@
 Any linux based operation system should work. If flashing does not work the generated uf2-file can be installed manually.
 I used a Raspberry Pi Zero. Compilation takes about 3 min.
 
-#### Setting up
+#### Setting Up
 
 * install rasbian lite and enable ssh
 * install qmk[^3]
@@ -292,6 +292,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 * verify that firmware still compiles
 * if keyboard hardware is available, flash keyboard and verify that key mapping is correct[^4]
 * remark: if you once changed the the keymaping using via once the values are stored and will remain also reflashing with completly different uf2-files e.g. blink.uf2
+
+#### Remarks compiling Firmware on Debian
+
+* install debian (debian-11.6.0-amd64-netinst.iso) using text-based installer with "Debian desktop environment" disabled and "SSH server" and "standard system utilities" enabled
+* install sudo via "apt install sudo"
+* add user to sudoers file using visudo, e.g "<user> ALL=(ALL:ALL) ALL". replace placeholder <user> with current user
+* install qmk
+
+```
+$ sudo apt install -y git python3-pip
+$ python3 -mpip install --user qmk
+$ qmk --version
+1.1.1
+$ qmk setup
+Ψ QMK is ready to go, but minor problems were found
+```
+* remark: instead of getting "QMK is ready to go" i get "QMK is ready to go, but minor problems were found" at the end of the qmk setup
+* compilation of two_x_four firmware takes about 20 seconds
 
 ## Usage
 
