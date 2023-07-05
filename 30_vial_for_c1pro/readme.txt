@@ -1,17 +1,79 @@
 tasks:
+a) retrieve original firmware version and flash latest one provided by keychron website
 
-a) compile using qmk server and flash keyboard
+b) compile using qmk server and flash keyboard
 [change something e.g. change keys, flash, flash orginal firmware]
-b) compile locally e.g. debian or raspberry pi
-c) compile with added vial support
+c) compile locally e.g. debian or raspberry pi
+d) compile with added vial support
 
 add a)
+wmic path CIM_LogicalDevice where "Description like 'USB%'" get /value | findstr 3434 | findstr REV
+HardwareID={"USB\VID_3434&amp;PID_0513&amp;REV_0100","USB\VID_3434&amp;PID_0513"}
+
+REV_0100 -> Version 1.00
+
+https://www.keychron.com/blogs/archived/how-to-factory-reset-or-flash-your-qmk-via-enabled-keychron-c1-pro-keyboard
+Download C1 Pro ANSI White Backlit Version Firmware -> c1_us_white_v1.1.bin
+https://github.com/qmk/qmk_toolbox/releases/download/0.2.2/qmk_toolbox.exe
+used qmk toolbox on esxi vm
+
+C:\Users\rze>wmic path CIM_LogicalDevice where "Description like 'USB%'" get /value | findstr 3434 | findstr REV
+HardwareID={"USB\VID_3434&amp;PID_0513&amp;REV_0101","USB\VID_3434&amp;PID_0513"}
+
+
+add b)
 
 #compile using qmk server:
+visited on 20230630
 invoke https://config.qmk.fm/#/keychron/c1_pro/ansi/white/LAYOUT_tkl_ansi
 press compile
 press firmware to download file "keychron_c1_pro_ansi_white_layout_tkl_ansi_mine.bin"
 question: compiled firmware is smaller, what about keymap.json?
+-> red led, left from reset botton is activated
+version states 1.00
+
+dump:
+#original firmware (not available)
+C:\Users\rze>wmic path CIM_LogicalDevice where "Description like 'USB%'" get /value | findstr 3434 | findstr REV
+HardwareID={"USB\VID_3434&amp;PID_0513&amp;REV_0100","USB\VID_3434&amp;PID_0513"}
+HardwareID={"USB\VID_3434&amp;PID_0513&amp;REV_0100&amp;MI_00","USB\VID_3434&amp;PID_0513&amp;MI_00"}
+HardwareID={"USB\VID_3434&amp;PID_0513&amp;REV_0100&amp;MI_01","USB\VID_3434&amp;PID_0513&amp;MI_01"}
+HardwareID={"USB\VID_3434&amp;PID_0513&amp;REV_0100&amp;MI_02","USB\VID_3434&amp;PID_0513&amp;MI_02"}
+HardwareID={"USB\VID_3434&amp;PID_0513&amp;REV_0100&amp;MI_03","USB\VID_3434&amp;PID_0513&amp;MI_03"}
+
+#firmware c1_us_white_v1.1.bin
+C:\Users\rze>wmic path CIM_LogicalDevice where "Description like 'USB%'" get /value | findstr 3434 | findstr REV
+HardwareID={"USB\VID_3434&amp;PID_0513&amp;REV_0101","USB\VID_3434&amp;PID_0513"}
+HardwareID={"USB\VID_3434&amp;PID_0513&amp;REV_0101&amp;MI_03","USB\VID_3434&amp;PID_0513&amp;MI_03"}
+HardwareID={"USB\VID_3434&amp;PID_0513&amp;REV_0101&amp;MI_02","USB\VID_3434&amp;PID_0513&amp;MI_02"}
+HardwareID={"USB\VID_3434&amp;PID_0513&amp;REV_0101&amp;MI_01","USB\VID_3434&amp;PID_0513&amp;MI_01"}
+HardwareID={"USB\VID_3434&amp;PID_0513&amp;REV_0101&amp;MI_00","USB\VID_3434&amp;PID_0513&amp;MI_00"}
+
+#firmware compiled using qmk server on 20230630                                                                                                                                                         
+C:\Users\rze>wmic path CIM_LogicalDevice where "Description like 'USB%'" get /value | findstr 3434 | findstr REV
+HardwareID={"USB\VID_3434&amp;PID_0513&amp;REV_0100","USB\VID_3434&amp;PID_0513"}
+HardwareID={"USB\VID_3434&amp;PID_0513&amp;REV_0100&amp;MI_01","USB\VID_3434&amp;PID_0513&amp;MI_01"}
+HardwareID={"USB\VID_3434&amp;PID_0513&amp;REV_0100&amp;MI_00","USB\VID_3434&amp;PID_0513&amp;MI_00"}
+
+#use qmk server firmware for some days, use via to set volume keys:
+edge https://usevia.app/#/
+no via support: no compatible devices found -> install official 1.1 firmware and try via again
+red light stays active, perhaps normal, device is detected in via as Keychron C1 Pro
+download c1_us_white_v1.1.json.zip, https://www.keychron.com/products/keychron-c1-pro-qmk-via-wired-mechanical-keyboard?variant=40359223361625
+, turn on "Show Design tab" on "Settings" tab, and drag the JSON file into the “Design” tab on VIA to get the C1 Pro keymap working on VIA.
+use load button in load draft definition context
+button arrow right can not be programmed -> interesting: email keychron
+
+-------
+button arrow right can not be programmed:
+pscp [options] [user@]host:source target
+pscp rze@vmc1pro:/home/rze/project_c1_pro/qmk_firmware/keychron_c1_pro_ansi_white_default.bin c:\github\ergodox_sourcing_de\30_vial_for_c1pro
+
+
+
+
+-------
+
 
 #compile locally using debian 12
    16  mkdir project_c1pro
@@ -44,7 +106,7 @@ only exe installer, since no programmable keyboard
 
 
 
-#######################################
+####################################################################################################
 old stuff:
 
 
